@@ -1,0 +1,16 @@
+{
+  "name": "repairdao-workspace",
+  "private": true,
+  "scripts": {
+    "local": "start \"\" /B npm --prefix repairdao-contracts run node && npm --prefix repairdao-contracts run deploy:local && npm --prefix repairdao run db:reset && npm --prefix repairdao run dev",
+    "espolia": "npm --prefix repairdao-contracts run deploy:sepolia && npm --prefix repairdao run db:reset && npm --prefix repairdao run dev",
+    "app:test": "npm --prefix repairdao run test",
+    "app:db:reset": "npm --prefix repairdao run db:reset",
+    "app:dev": "npm --prefix repairdao run dev",
+    "contracts:node": "npm --prefix repairdao-contracts run node",
+    "contracts:deploy:local": "npm --prefix repairdao-contracts run deploy:local",
+    "contracts:deploy:sepolia": "npm --prefix repairdao-contracts run deploy:sepolia",
+    "contracts:test": "npm --prefix repairdao-contracts run compile && npm --prefix repairdao-contracts run test",
+    "contracts:audit": "npm --prefix repairdao-contracts run audit:mythril-docker && npm --prefix repairdao-contracts run audit:slither"
+  }
+}
