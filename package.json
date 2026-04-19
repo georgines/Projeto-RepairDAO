@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "local": "start \"\" /B npm --prefix repairdao-contracts run node && npm --prefix repairdao-contracts run deploy:local && npm --prefix repairdao run db:reset && npm --prefix repairdao run dev",
-    "espolia": "npm --prefix repairdao-contracts run deploy:sepolia && npm --prefix repairdao run db:reset && npm --prefix repairdao run dev",
+    "sepolia": "npm --prefix repairdao-contracts run deploy:sepolia && npm --prefix repairdao run db:reset && npm --prefix repairdao run dev",
     "app:test": "npm --prefix repairdao run test",
     "app:db:reset": "npm --prefix repairdao run db:reset",
     "app:dev": "npm --prefix repairdao run dev",
