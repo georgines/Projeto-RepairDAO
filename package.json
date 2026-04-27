@@ -2,7 +2,7 @@
   "name": "repairdao-workspace",
   "private": true,
   "scripts": {
-    "local": "start \"\" /B npm --prefix repairdao-contracts run node && npm --prefix repairdao-contracts run deploy:local && npm --prefix repairdao run db:reset && npm --prefix repairdao run dev",
+    "local": "node scripts/run-local.mjs",
     "sepolia": "node scripts/run-sepolia.mjs",
     "test": "npm --prefix repairdao run test",
     "app:db:reset": "npm --prefix repairdao run db:reset",
