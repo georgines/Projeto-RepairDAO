@@ -15,35 +15,68 @@ O projeto RepairDAO implementa uma plataforma de serviços com integração bloc
 
 Os comandos abaixo funcionam em PowerShell e Bash.
 
+## Início rápido
+
+### 1. Clone a raiz
+
+```bash
+git clone https://github.com/georgines/Projeto-RepairDAO.git
+```
+
+### 2. Entre na pasta
+
+```bash
+cd Projeto-RepairDAO
+```
+
+### 3. Clone o app
+
+```bash
+git clone https://github.com/georgines/repairdao.git repairdao
+```
+
+### 4. Clone os contratos
+
+```bash
+git clone https://github.com/georgines/repairdao-contracts.git repairdao-contracts
+```
+
+### 5. Configure o `.env` do app
+
+Duplique `repairdao/.env.example` como `repairdao/.env`.
+
+### 6. Configure o `.env` dos contratos
+
+Duplique `repairdao-contracts/.env.example` como `repairdao-contracts/.env`.
+
+### 7. Se for usar Sepolia
+
+Edite `repairdao/.env` e `repairdao-contracts/.env` com sua RPC e sua chave.
+
+### 8. Instale as dependências dos contratos
+
+```bash
+yarn --cwd repairdao-contracts install
+```
+
+### 9. Instale as dependências do app
+
+```bash
+yarn --cwd repairdao install
+```
+
+### 10. Gere o Prisma Client
+
+```bash
+yarn --cwd repairdao run prisma:generate
+```
+
 ## Estrutura esperada
 
 ```text
 Projeto-RepairDAO/
 |- repairdao/
 |- repairdao-contracts/
-```
-
-## Clone
-
-```bash
-git clone https://github.com/georgines/Projeto-RepairDAO.git
-cd Projeto-RepairDAO
-git clone https://github.com/georgines/repairdao.git repairdao
-git clone https://github.com/georgines/repairdao-contracts.git repairdao-contracts
-```
-
-## Configuração
-
-1. Duplique `repairdao/.env.example` como `repairdao/.env`.
-2. Duplique `repairdao-contracts/.env.example` como `repairdao-contracts/.env`.
-3. Se for usar Sepolia, edite `repairdao/.env` e `repairdao-contracts/.env` com sua RPC e sua chave.
-
-## Instalação
-
-```bash
-yarn --cwd repairdao-contracts install
-yarn --cwd repairdao install
-yarn --cwd repairdao run prisma:generate
 ```
 
 ## Uso local
