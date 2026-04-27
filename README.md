@@ -2,8 +2,8 @@
 
 Repositório raiz de orquestração do ambiente. Ele depende de dois repositórios públicos:
 
-- `repairdao`: app Next.js
-- `repairdao-contracts`: contratos Solidity com Hardhat
+- [`repairdao`](https://github.com/georgines/repairdao): app Next.js
+- [`repairdao-contracts`](https://github.com/georgines/repairdao-contracts): contratos Solidity com Hardhat
 
 O projeto RepairDAO implementa uma plataforma de serviços com integração blockchain, cobrindo cadastro de usuários, depósito, reputação, ordens de serviço, disputas e governança.
 
@@ -68,6 +68,33 @@ yarn --cwd repairdao run dev
 ```
 
 App disponível em `http://localhost:3000`.
+
+## MetaMask e seletor
+
+O app exibe um seletor de rede na barra da carteira, com as opções `LOCAL` e `SEPOLIA`. A escolha feita ali fica salva no navegador e passa a ser a rede ativa do app.
+
+### Rede local
+
+1. Suba a rede local com `yarn run local` na raiz ou com o fluxo manual.
+2. No MetaMask, adicione ou selecione uma rede com estes dados:
+
+```text
+Nome: Local
+RPC URL: http://127.0.0.1:8545
+Chain ID: 31337
+Símbolo: ETH
+```
+
+3. Importe no MetaMask uma das contas exibidas pelo `hardhat node`.
+4. No app, escolha `LOCAL` no seletor.
+5. Confirme no MetaMask que a carteira também está conectada na rede local.
+
+### Rede Sepolia
+
+1. Configure `SEPOLIA_RPC_URL` no app e no projeto de contratos.
+2. Se for fazer deploy, preencha também `SEPOLIA_PRIVATE_KEY` em `repairdao-contracts/.env`.
+3. No MetaMask, selecione a rede Sepolia.
+4. No app, escolha `SEPOLIA` no seletor.
 
 ## Uso em Sepolia
 
