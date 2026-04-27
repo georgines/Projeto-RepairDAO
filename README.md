@@ -51,7 +51,34 @@ Duplique `repairdao-contracts/.env.example` como `repairdao-contracts/.env`.
 
 ### 7. Se for usar Sepolia
 
-Edite `repairdao/.env` e `repairdao-contracts/.env` com sua RPC e sua chave.
+No `repairdao/.env`, preencha `SEPOLIA_RPC_URL`.
+
+No `repairdao-contracts/.env`, preencha:
+
+- `SEPOLIA_RPC_URL`
+- `SEPOLIA_PRIVATE_KEY`, se for fazer deploy em Sepolia
+
+Para configurar `SEPOLIA_RPC_URL`, escolha uma destas opções:
+
+1. Usar uma RPC com chave própria:
+
+```env
+SEPOLIA_RPC_URL=https://eth-sepolia.g.alchemy.com/v2/SUA_CHAVE_AQUI
+```
+
+2. Usar uma RPC pública gratuita, sem chave:
+
+```env
+SEPOLIA_RPC_URL=https://rpc.sepolia.org
+```
+
+ou
+
+```env
+SEPOLIA_RPC_URL=https://ethereum-sepolia-rpc.publicnode.com
+```
+
+As RPCs públicas costumam ser suficientes para desenvolvimento e testes, mas tendem a ter mais instabilidade e limite menor do que provedores com chave própria.
 
 ### 8. Instale as dependências dos contratos
 
@@ -124,58 +151,28 @@ Símbolo: ETH
 
 ### Rede Sepolia
 
-1. Configure `SEPOLIA_RPC_URL` no app e no projeto de contratos.
-2. Se for fazer deploy, preencha também `SEPOLIA_PRIVATE_KEY` em `repairdao-contracts/.env`.
-3. No MetaMask, selecione a rede Sepolia.
-4. No app, escolha `SEPOLIA` no seletor.
+1. No MetaMask, selecione a rede Sepolia.
+2. No app, escolha `SEPOLIA` no seletor.
 
 ## Uso em Sepolia
 
-1. Preencha `SEPOLIA_RPC_URL` e `SEPOLIA_PRIVATE_KEY` em `repairdao-contracts/.env`.
-2. Preencha `SEPOLIA_RPC_URL` em `repairdao/.env`.
-3. Se quiser abrir o app já com Sepolia como padrão, defina `NEXT_PUBLIC_NETWORK=sepolia` em `repairdao/.env`.
-4. A seleção final da rede no navegador é feita pelo seletor da interface.
-5. Faça o deploy:
+1. Faça o deploy:
 
 ```bash
 yarn --cwd repairdao-contracts run deploy:sepolia
 ```
 
-6. Inicie o app:
+2. Inicie o app:
 
 ```bash
 yarn --cwd repairdao run db:reset
 yarn --cwd repairdao run dev
 ```
 
-## RPC Sepolia
-
-Para configurar `SEPOLIA_RPC_URL`, escolha uma destas opções:
-
-1. Usar uma RPC com chave própria:
-
-```env
-SEPOLIA_RPC_URL=https://eth-sepolia.g.alchemy.com/v2/SUA_CHAVE_AQUI
-```
-
-2. Usar uma RPC pública gratuita, sem chave:
-
-```env
-SEPOLIA_RPC_URL=https://rpc.sepolia.org
-```
-
-ou
-
-```env
-SEPOLIA_RPC_URL=https://ethereum-sepolia-rpc.publicnode.com
-```
-
-As RPCs públicas costumam ser suficientes para desenvolvimento e testes, mas tendem a ter mais instabilidade e limite menor do que provedores com chave própria.
-
 ## Observações
 
-- O deploy local atualiza `repairdao/src/contracts/deploy/local.json`.
-- O deploy em Sepolia atualiza `repairdao/src/contracts/deploy/sepolia.json`.
+- Os arquivos `repairdao/src/contracts/deploy/local.json` e `repairdao/src/contracts/deploy/sepolia.json` guardam os endereços dos contratos usados pelo app em cada rede e são atualizados pelo deploy correspondente.
+- Se esses arquivos não estiverem alinhados ao deploy real, o app pode tentar ler ou enviar transações para contratos errados.
 - Na raiz, `yarn run local` sobe o `hardhat node`, faz o deploy local, reseta o banco e inicia o app.
 - Na raiz, `yarn run sepolia` sobe o app para uso com Sepolia.
 - Para fazer o deploy em Sepolia antes de subir o app pela raiz, use `yarn run sepolia -d`.
