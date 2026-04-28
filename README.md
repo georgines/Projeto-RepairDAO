@@ -5,7 +5,7 @@ Repositório raiz de orquestração do ambiente. Ele depende de dois repositóri
 - [`repairdao`](https://github.com/georgines/repairdao): app Next.js
 - [`repairdao-contracts`](https://github.com/georgines/repairdao-contracts): contratos Solidity com Hardhat
 
-O projeto RepairDAO implementa uma plataforma de serviços com integração blockchain, cobrindo cadastro de usuários, depósito, reputação, ordens de serviço, disputas e governança.
+RepairDAO é uma plataforma descentralizada de serviços construída sobre blockchain Ethereum. Ela conecta clientes e prestadores de serviço usando contratos inteligentes para gerenciar depósitos, pagamentos em escrow, reputação, badges e governança, tudo de forma transparente e sem intermediários.
 
 ## Requisitos
 
